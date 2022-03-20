@@ -19,6 +19,8 @@ const Login = () => {
                 bgColor="grey"
                 p={16}
                 rounded="3xl"
+                spacing={12}
+                boxShadow="lg"
             >
                 <Box 
                     bgColor="blue"
