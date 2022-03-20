@@ -37,7 +37,7 @@ const Sidebar = () => {
 
         <Button m={5} p={4} >New Chat</Button>
 
-        <Flex overflowX="scroll" direction="column" sx={{scrollbarWidth: "none"}}>
+        <Flex overflowX="scroll" direction="column" sx={{scrollbarWidth: 'none'}}>
             <Chat/>
             <Chat/>
             <Chat/>
