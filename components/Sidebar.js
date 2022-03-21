@@ -1,6 +1,8 @@
 import React from 'react'
 import { Flex, IconButton, Text, Avatar, Button } from '@chakra-ui/react' 
 import { ArrowLeftIcon } from '@chakra-ui/icons'
+import { signOut } from 'firebase/auth'
+import { auth } from '../firebaseconfig'
 
 const Chat = () => {
     return (
@@ -31,7 +33,7 @@ const Sidebar = () => {
                 <Text>Tre Molony</Text>
             </Flex>
 
-            <IconButton size="sm" isRound icon={<ArrowLeftIcon/>} />
+            <IconButton onClick={() => signOut(auth)} size="sm" isRound icon={<ArrowLeftIcon/>} />
 
         </Flex>
 
