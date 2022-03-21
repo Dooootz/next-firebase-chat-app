@@ -16,7 +16,7 @@ const Login = () => {
         >
             <Stack
                 align="center"
-                bgColor="grey.600"
+                bgColor="gray.600"
                 p={16}
                 rounded="3xl"
                 spacing={12}
