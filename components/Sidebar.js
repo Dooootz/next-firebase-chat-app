@@ -4,6 +4,9 @@ import { ArrowLeftIcon } from '@chakra-ui/icons'
 import { signOut } from 'firebase/auth'
 import { auth } from '../firebaseconfig'
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useCollection } from 'react-firebase-hooks/firestore';
+import { getFirestore, collection } from '@firebase/firestore'
+import { db } from '../firebaseconfig'
 
 const Chat = () => {
     return (
@@ -15,7 +18,10 @@ const Chat = () => {
 }
 
 const Sidebar = () => {
-    const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth);
+  const [snapshot, loading, error] = useCollection(collection(getFirestore(db), "chats"));
+  console.log(snapshot)
+
   return (
     <Flex
         // bg="blue.100"
