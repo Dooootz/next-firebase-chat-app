@@ -5,7 +5,7 @@ import { Flex, Avatar, Heading, Input, FormControl, Button, Text } from '@chakra
 const Topbar = () => {
     return (
         <Flex
-            bg="grey.600"
+            bg="gray.100"
             h="81px" w="100%"
             align="center"
             p={5}
@@ -46,7 +46,7 @@ export default function Chat() {
                     direction="column"
                     pt={4} mx={5}
                     overflowX="scroll"
-                    sx={{scrollbar: "none"}}
+                    sx={{scrollbarWidth: "none"}}
                 >
                     <Flex bg="blue.100" w="fit-content" minWidth="100px" borderRadius="lg" p={3} m={1}>
                         <Text>This is a dummy message</Text>
