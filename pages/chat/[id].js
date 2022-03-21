@@ -46,7 +46,7 @@ export default function Chat() {
                     direction="column"
                     pt={4} mx={5}
                     overflowX="scroll"
-                    sx={{scrollbarWidth: "none"}}
+                    // sx={{scrollbarWidth: "none"}}
                 >
                     <Flex bg="blue.100" w="fit-content" minWidth="100px" borderRadius="lg" p={3} m={1}>
                         <Text>This is a dummy message</Text>
