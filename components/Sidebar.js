@@ -20,8 +20,9 @@ const Chat = () => {
 const Sidebar = () => {
   const [user] = useAuthState(auth);
   const [snapshot, loading, error] = useCollection(collection(getFirestore(db), "chats"));
-  console.log(snapshot)
+  const chats = snapshot?.docs.map((doc => ({id: doc.id, ...doc.data()})));
 
+  console.log(chats)
   return (
     <Flex
         // bg="blue.100"
