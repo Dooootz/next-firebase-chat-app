@@ -22,7 +22,7 @@ const Bottombar = () => {
         <FormControl
             p={3}
         >
-            <Input placeholder='Type a message...' autocomplete="off"/>
+            <Input placeholder='Type a message...' autoComplete="off"/>
             <Button type="submit" hidden>Submit</Button>
         </FormControl>
     )
