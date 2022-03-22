@@ -17,6 +17,7 @@ const Sidebar = () => {
   const chats = snapshot?.docs.map((doc => ({id: doc.id, ...doc.data()})));
   const router = useRouter()  
 
+  
   const redirect = (id) => {
     router.push(`/chat/${id}`);
   }
