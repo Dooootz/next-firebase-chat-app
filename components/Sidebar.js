@@ -7,22 +7,26 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { getFirestore, collection } from '@firebase/firestore'
 import { db } from '../firebaseconfig'
+import getOtherEmail from '../utils/getOtherEmail'
 
-const Chat = () => {
-    return (
-        <Flex p={3} align="center" _hover={{bg: "gray.100", cursor: "pointer"}}>
-            <Avatar src="" marginEnd={3}/>
-            <Text>user@gmailcom</Text>
-        </Flex>
-    )
-}
+
 
 const Sidebar = () => {
   const [user] = useAuthState(auth);
   const [snapshot, loading, error] = useCollection(collection(getFirestore(db), "chats"));
   const chats = snapshot?.docs.map((doc => ({id: doc.id, ...doc.data()})));
 
-  console.log(chats)
+  const chatList = () => {
+    return (
+        chats?.map(
+            chat =>
+            <Flex key={Math.random()} p={3} align="center" _hover={{bg: "gray.100", cursor: "pointer"}}>
+                <Avatar src="" marginEnd={3}/>
+                <Text>{getOtherEmail(chat.users, user)}</Text>
+            </Flex>
+        )
+    )
+}
   return (
     <Flex
         // bg="blue.100"
@@ -49,21 +53,7 @@ const Sidebar = () => {
         <Button m={5} p={4} >New Chat</Button>
 
         <Flex overflowX="scroll" direction="column" flex={1}>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
+            {chatList()}
         </Flex>
 
     </Flex>
