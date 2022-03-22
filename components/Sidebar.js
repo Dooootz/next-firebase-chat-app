@@ -5,10 +5,11 @@ import { getRedirectResult, signOut } from 'firebase/auth'
 import { auth } from '../firebaseconfig'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollection } from 'react-firebase-hooks/firestore';
-import { getFirestore, collection } from '@firebase/firestore'
+import { getFirestore, collection, addDoc } from '@firebase/firestore'
 import { db } from '../firebaseconfig'
 import getOtherEmail from '../utils/getOtherEmail'
 import { useRouter } from 'next/router'
+
 
 
 const Sidebar = () => {
@@ -20,6 +21,12 @@ const Sidebar = () => {
   
   const redirect = (id) => {
     router.push(`/chat/${id}`);
+  }
+
+  const newChat = async () => {
+      const input = prompt("Enter email of chat recipient");
+
+      await addDoc(collection((getFirestore(db)), "chats"), { users: [user.email, input]} );
   }
   
   const chatList = () => {
@@ -57,7 +64,7 @@ const Sidebar = () => {
 
         </Flex>
 
-        <Button m={5} p={4} >New Chat</Button>
+        <Button m={5} p={4} onClick={() =>newChat()} >New Chat</Button>
 
         <Flex overflowX="scroll" direction="column" flex={1}>
             {chatList()}
