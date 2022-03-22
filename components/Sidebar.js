@@ -23,10 +23,13 @@ const Sidebar = () => {
     router.push(`/chat/${id}`);
   }
 
+  const chatExists = email => chats?.find(chat => (chat.users.includes(user.email) && chat.users.includes(email)))
+
   const newChat = async () => {
       const input = prompt("Enter email of chat recipient");
-
-      await addDoc(collection((getFirestore(db)), "chats"), { users: [user.email, input]} );
+      if(!chatExists(input) && (input != user.email)) {
+          await addDoc(collection((getFirestore(db)), "chats"), { users: [user.email, input]} );
+      }
   }
   
   const chatList = () => {
