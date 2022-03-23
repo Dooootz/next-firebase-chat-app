@@ -2,11 +2,10 @@ import React from 'react'
 import { Flex, IconButton, Text, Avatar, Button } from '@chakra-ui/react' 
 import { ArrowLeftIcon } from '@chakra-ui/icons'
 import { getRedirectResult, signOut } from 'firebase/auth'
-import { auth } from '../firebaseconfig'
+import { auth, db } from '../firebaseconfig'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { getFirestore, collection, addDoc } from '@firebase/firestore'
-import { db } from '../firebaseconfig'
 import getOtherEmail from '../utils/getOtherEmail'
 import { useRouter } from 'next/router'
 
