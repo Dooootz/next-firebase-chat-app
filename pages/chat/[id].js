@@ -1,9 +1,11 @@
-import React from 'react'
-import Sidebar from '../../components/Sidebar'
-import { Flex, Avatar, Heading, Input, FormControl, Button, Text } from '@chakra-ui/react'
-import Head from 'next/head'
-import { useRouter } from 'next/router' 
-import { useCollectionData } from 'react-firebase-hooks/firestore';
+import React from 'react';
+import Sidebar from '../../components/Sidebar';
+import { Flex, Avatar, Heading, Input, FormControl, Button, Text } from '@chakra-ui/react';
+import Head from 'next/head';
+import { useRouter } from 'next/router' ;
+import { useCollection, useCollectionData } from 'react-firebase-hooks/firestore';
+import { getFirestore, collection, orderBy, query } from 'firebase/firestore'
+import { db } from '../../firebaseconfig';
 
 const Topbar = () => {
     return (
@@ -34,7 +36,14 @@ export default function Chat() {
     const router = useRouter();
     const { id } = router.query
 
-    const [values] = useCollectionData(query, options);
+    const q = query(useCollection(collection((getFirestore(db), "chats", id, "messages"))), orderBy("timestamp"));
+    // slsh vs comma notation
+    // const q = query(collection((getFirestore(db), `/chats/${id}/messages`)), orderBy("timestamp"));
+
+    // const q = query(collection(db, `chats/${id}/messages`), orderBy("timestamp"));
+    const [messages] = useCollectionData(q);
+
+    console.log(messages)
 
     return (
         <Flex
