@@ -2,6 +2,7 @@ import React from 'react'
 import Sidebar from '../../components/Sidebar'
 import { Flex, Avatar, Heading, Input, FormControl, Button, Text } from '@chakra-ui/react'
 import Head from 'next/head'
+import { useRouter } from 'next/router' 
 
 const Topbar = () => {
     return (
@@ -29,6 +30,10 @@ const Bottombar = () => {
 }
 
 export default function Chat() {
+    const router = useRouter();
+    const { id } = router.query
+    console.log(id)
+    
     return (
         <Flex
             h="100vh"
