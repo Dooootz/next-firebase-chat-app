@@ -33,7 +33,6 @@ const Bottombar = () => {
 export default function Chat() {
     const router = useRouter();
     const { id } = router.query
-    console.log(id)
 
     const [values] = useCollectionData(query, options);
 
