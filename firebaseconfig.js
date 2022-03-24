@@ -1,3 +1,7 @@
+// == firebase config file ==
+// this file configures your api keys, authDomain, id's etc
+// it uses this data to connect your app to the firebase backend 
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth'
