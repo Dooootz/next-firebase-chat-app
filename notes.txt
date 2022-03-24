@@ -1,5 +1,13 @@
 checkpoint@ ~1:13:00
 
-Lets review code tonight 
-Review as much as we can off the top of the head 
-Iterate thru the video on sections that we may be unsure about 
+Continue code review tomorrow 
+So far we've completed 
+>Login
+>Sidebar @~50% 
+>firebase config
+
+Lets complete the sidebar process explaination 
+Practice manual correct indentation aswell 
+
+skim thru the video on any other sections that we may be unsure about 
+e.g some of the logic explainations are a bit arbitrary 
