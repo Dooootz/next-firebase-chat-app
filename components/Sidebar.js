@@ -48,8 +48,9 @@ const Sidebar = () => {
   // use next router function
   const router = useRouter()  
 
-  
+  // redirect callback function that takes uuid as a parameter 
   const redirect = (id) => {
+    // router.push() function takes us to this api endpoint - where uuid === id
     router.push(`/chat/${id}`);
   }
 
