@@ -20,46 +20,66 @@ import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
 // import the get auth function which is set up in our config file
 import { auth } from '../firebaseconfig'
 
-
+// react functional component
 const Login = () => {
+
+    // useSignInWithGoogle(auth) hook - takes our firebase authetication as a parameter 
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-  return (
-    <>
-        <Head>
-            <title>Login</title>
-        </Head>
 
-        <Center 
-            height="100vh"
-        >
-            <Stack
-                align="center"
-                bgColor="gray.600"
-                p={16}
-                rounded="3xl"
-                spacing={12}
-                boxShadow="lg"
+    return (
+        // empty fragment
+        <>
+            {/* ## COMMENTS IN COMPONENTS MUST BE WRAPPED WITH THESE SPECIAL ASTERISK - CURLY BRACES */}
+            {/* // change the tab title by creating a Head "tag" component */}
+            <Head>
+                <title>Login</title>
+            </Head>
+
+            {/* // Center components are used to horizontally & vertically center its child */}
+            <Center 
+                height="100vh"
             >
-                <Box 
-                    bgColor="blue.500"
-                    w="fit-content"
-                    p={5}
+                {/* // Stack components are similar to flexbox justify & align   */}
+                <Stack
+                    align="center"
+                    // instantiate color followed by a selected 'shade' of that color
+                    bgColor="gray.600"
+                    // padding is pre-defined to numbers 
+                    p={16}
+                    // border radius
                     rounded="3xl"
-                    boxShadow="md"
+                    // = flexbox: gap
+                    spacing={12}
+                    // box shadow e.g s, md, lg etc
+                    boxShadow="lg"
                 >
-                    <ChatIcon w="100px" h="100px" color="white"/>
-                </Box>
+                    {/* box components is basically a <div> where chakra components may live inside */}
+                    {/* e.g chakra-ui icons */}
+                    <Box 
+                        bgColor="blue.500"
+                        // w = width, fit content will shrink the outer component to its child
+                        w="fit-content"
+                        // padding creates space around the child component
+                        p={5}
+                        rounded="3xl"
+                        boxShadow="md"
+                    >
+                        <ChatIcon w="100px" h="100px" color="white"/>
+                    </Box>
 
-                <Button boxShadow="md" onClick={() => signInWithGoogle("", {prompt: "select_account"})}>Sign In with Google</Button>
-            </Stack>
+                    {/* simple chakra-ui button takes an onClick attribute */}
+                    {/* runs a callback function that executes our useSignInWithGoogle() hook */}
+                    {/* hover over the component to see how the parameters effect our hook */}
+                    <Button boxShadow="md" onClick={() => signInWithGoogle("", {prompt: "select_account"})}>Sign In with Google</Button>
+                </Stack>
 
-        </Center>
+            </Center>
 
-    </>
+        </>
 
   )
 
 }
 
-
+// export Login functional component as our default function
 export default Login
