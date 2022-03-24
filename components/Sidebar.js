@@ -58,8 +58,14 @@ const Sidebar = () => {
   // opens the chat document then loops thru to match user email with our auth email
   const chatExists = email => chats?.find(chat => (chat.users.includes(user.email) && chat.users.includes(email)))
 
+  // asynchronous callback function 
+  // prompts user to enter the email of intended chat user
   const newChat = async () => {
       const input = prompt("Enter email of chat recipient");
+      // if chat with selected user does NOT exist
+      // await
+      // then create new chat with that user 
+      // if chat does exist... then do nothing
       if(!chatExists(input) && (input != user.email)) {
           await addDoc(collection((getFirestore(db)), "chats"), { users: [user.email, input]} );
       }
