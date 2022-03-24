@@ -71,13 +71,18 @@ const Sidebar = () => {
       }
   }
   
+  // filter thru all the distinct chats in firestore 
   const chatList = () => {
     return (
+        // match & validate the emails between both parties
         chats?.filter(chat => chat.users.includes(user.email))
         .map(
+            // upon matching, add this new element to the DOM
             chat =>
+            // onclick function that redirects user the shared chat session
             <Flex key={Math.random()} p={3} align="center" _hover={{bg: "gray.100", cursor: "pointer"}} onClick={() => redirect(chat.id)}>
                 <Avatar src="" marginEnd={3}/>
+                {/* match & display that users email address */}
                 <Text>{getOtherEmail(chat.users, user)}</Text>
             </Flex>
         )
