@@ -1,12 +1,33 @@
+// == Sidebar component ==
 import React from 'react'
+
+// import necessary chakra-ui components 
 import { Flex, IconButton, Text, Avatar, Button } from '@chakra-ui/react' 
+
+// import { icon } from chakra-ui library
 import { ArrowLeftIcon } from '@chakra-ui/icons'
+
+// import sign out function from firebase/auth
 import { getRedirectResult, signOut } from 'firebase/auth'
+
+// import getAuth & getFirestore functions 
 import { auth, db } from '../firebaseconfig'
+
+// useState hook for firebase - 
 import { useAuthState } from 'react-firebase-hooks/auth';
+
+// useCollection = use firebase database schema
 import { useCollection } from 'react-firebase-hooks/firestore';
+
+// import firebase functions
 import { getFirestore, collection, addDoc } from '@firebase/firestore'
+
+// import logic from utils/getOtherEmail
+// this function captures the authenticated users email
+// then filters thru each users email in db & saves the email into an array
 import getOtherEmail from '../utils/getOtherEmail'
+
+// import useRouter() functions from next/router
 import { useRouter } from 'next/router'
 
 
