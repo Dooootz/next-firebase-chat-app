@@ -31,11 +31,21 @@ import getOtherEmail from '../utils/getOtherEmail'
 import { useRouter } from 'next/router'
 
 
-
+// Sidebar functional component
 const Sidebar = () => {
+
+  // destructure user from useAuthState hook
+  // takes authentication as a parameter / handle
   const [user] = useAuthState(auth);
+
+  // destructure useCollection hook - see docs for additional information about using this hook + parameters 
   const [snapshot, loading, error] = useCollection(collection(getFirestore(db), "chats"));
+
+  // chats takes a snapshot of the live document 
+  // finds the document credentials that match of firebase config file 
   const chats = snapshot?.docs.map((doc => ({id: doc.id, ...doc.data()})));
+
+  // use next router function
   const router = useRouter()  
 
   
