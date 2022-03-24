@@ -54,6 +54,8 @@ const Sidebar = () => {
     router.push(`/chat/${id}`);
   }
 
+  // single line callback function takes autheticated email as a parameter
+  // opens the chat document then loops thru to match user email with our auth email
   const chatExists = email => chats?.find(chat => (chat.users.includes(user.email) && chat.users.includes(email)))
 
   const newChat = async () => {
