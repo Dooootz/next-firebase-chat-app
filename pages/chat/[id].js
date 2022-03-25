@@ -1,3 +1,4 @@
+// == /chat/id endpoint ==
 import React from 'react';
 import Sidebar from '../../components/Sidebar';
 import { Flex, Avatar, Heading, Input, FormControl, Button, Text } from '@chakra-ui/react';
