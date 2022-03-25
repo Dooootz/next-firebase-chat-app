@@ -108,12 +108,16 @@ const Sidebar = () => {
                     <Text>{user.displayName}</Text>
                 </Flex>
 
+                {/* // onclick function calls the google firebase signout function */}
+                {/* takes authenticated user as a parameter */}
                 <IconButton onClick={() => signOut(auth)} size="sm" isRound icon={<ArrowLeftIcon/>} />
 
             </Flex>
 
+            {/* // onclick function executes newChat function // no parameters */}
             <Button m={5} p={4} onClick={() =>newChat()} >New Chat</Button>
 
+            {/* display our chat list inside this flex component */}
             <Flex overflowX="scroll" direction="column" flex={1}>
             {chatList()}
             </Flex>
