@@ -1,4 +1,6 @@
 // == /chat/id endpoint ==
+// this route renders each unique chat component 
+// we import all necessary functions & hooks 
 import React from 'react';
 import Sidebar from '../../components/Sidebar';
 import { Flex, Avatar, Heading, Input, FormControl, Button, Text } from '@chakra-ui/react';
