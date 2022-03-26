@@ -52,18 +52,21 @@ export default function Chat() {
         <Flex
             h="100vh"
         >
+            {/* import head tag from our root document */}
             <Head>
                 <title>Chat App</title>
             </Head>
 
+            {/* import sidebar component */}
             <Sidebar/>
 
+            {/* set flex container which wraps our entire chat message component */}
             <Flex
                 flex={1}
                 direction="column"
             >
                 <Topbar />
-
+                {/* dummy chat elements */}
                 <Flex
                     flex={1}
                     direction="column"
@@ -175,6 +178,7 @@ export default function Chat() {
 
                 </Flex>
 
+                {/* bottombar = input area */}
                 <Bottombar />
             </Flex>
 
