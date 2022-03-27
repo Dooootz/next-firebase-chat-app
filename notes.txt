@@ -1,9 +1,5 @@
 checkpoint@ ~1:13:00
 
-Continue code review tomorrow 
-
 >>>Login
 >>>Sidebar
 >>>firebase config
-
-chat/id review tomorrow
